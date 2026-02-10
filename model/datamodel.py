@@ -4,7 +4,7 @@ from database_config.database import Base
 
 class Category(Base):
     __tablename__ = 'Category'
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(50))
     image_url = Column(String(50))
     color = Column(String(10))

@@ -10,13 +10,13 @@ class UserPublicloginScheme(BaseModel):
     username : str
     email: EmailStr
 
-class Category(BaseModel):
+class CategorySchema(BaseModel):
     name : str
     image_url : str
     color : str
 
-class Expense(BaseModel):
+class ExpenseSchema(BaseModel):
     amount : float
     description : str
     date : datetime
-    category : Category
+    category : CategorySchema
