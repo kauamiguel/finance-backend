@@ -1,6 +1,5 @@
 from http import HTTPStatus
-from sys import prefix
-from fastapi import FastAPI, Depends
+from fastapi import Depends
 from fastapi.routing import APIRouter
 from sqlalchemy.orm.session import Session
 from starlette.status import HTTP_200_OK
@@ -10,7 +9,7 @@ from database_config import Base, engine, get_db
 
 router = APIRouter(
     prefix="/category",
-    tags=["caregories"]
+    tags=["categories"]
 )
 
 @router.get("/")
