@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List, Optional
 from pydantic import BaseModel, EmailStr
 
 class UserloginScheme(BaseModel):
@@ -10,13 +11,31 @@ class UserPublicloginScheme(BaseModel):
     username : str
     email: EmailStr
 
-class Category(BaseModel):
+class CategoryBase(BaseModel):
+    id: int
     name : str
     image_url : str
     color : str
 
-class Expense(BaseModel):
+    class Config:
+        orm_mode = True
+
+class CategorySchema(BaseModel):
+    name : str
+    image_url : str
+    color : str
+
+class ExpenseBase(BaseModel):
     amount : float
     description : str
     date : datetime
-    category : Category
+
+class ExpenseSchema(ExpenseBase):
+    category_ids : List[int]
+
+class ExpenseResponseSchema(ExpenseBase):
+    id: int
+    categories: List[CategoryBase] = []
+
+    class Config:
+        orm_mode = True
