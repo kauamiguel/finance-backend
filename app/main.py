@@ -1,10 +1,10 @@
 from http import HTTPStatus
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm.session import Session
-from schemas.schemas import UserPublicloginScheme, UserloginScheme, CategorySchema, ExpenseSchema
-from model.datamodel import Category, Expense
-from database_config import Base, engine, get_db
-from routers import categories
+from app.schemas.schemas import UserPublicloginScheme, UserloginScheme, CategorySchema, ExpenseSchema
+from app.model.datamodel import Category, Expense
+from app.database_config import Base, engine, get_db
+from app.routers import categories
 
 app = FastAPI()
 
