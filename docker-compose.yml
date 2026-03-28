@@ -9,14 +9,18 @@ services:
       - 5432:5432
 
   api:
-   build: ./
-   depends_on:
-    - db
-   environment:
-    - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
-   ports:
-    - 8000:8000
-   volumes:
-    - ./app:/backend_finance/app
-   command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
-   working_dir: /backend_finance/app
+    image: backend_finance:latest
+    labels:
+      shipyard.primary-route: true
+      shipyard-route: '/docs'
+    build: ./
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app:/backend_finance/app
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    working_dir: /backend_finance/app
