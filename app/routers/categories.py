@@ -3,9 +3,9 @@ from fastapi import Depends
 from fastapi.routing import APIRouter
 from sqlalchemy.orm.session import Session
 from starlette.status import HTTP_200_OK
-from schemas.schemas import UserPublicloginScheme, UserloginScheme, CategorySchema, ExpenseSchema
-from model.datamodel import Category, Expense
-from database_config import Base, engine, get_db
+from app.schemas.schemas import UserPublicloginScheme, UserloginScheme, CategorySchema, ExpenseSchema
+from app.model.datamodel import Category, Expense
+from app.database_config import Base, engine, get_db
 
 router = APIRouter(
     prefix="/category",

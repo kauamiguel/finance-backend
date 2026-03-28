@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, Double, ForeignKey, Table, func
 from sqlalchemy.orm import relationship
-from database_config.database import Base
+from app.database_config.database import Base
 
 expense_category_association_table = Table(
     'expense_category_association', Base.metadata,

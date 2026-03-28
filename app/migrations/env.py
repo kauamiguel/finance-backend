@@ -1,10 +1,17 @@
 from logging.config import fileConfig
+import sys
+from pathlib import Path
+
+# Repo root (parent of `app/`) so `import app.*` works when running Alembic
+_root = Path(__file__).resolve().parents[2]
+if str(_root) not in sys.path:
+    sys.path.insert(0, str(_root))
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-from database_config import Base
-from database_config.database import database_url
-import model.datamodel  # noqa: F401 - register models with Base.metadata
+from app.database_config import Base
+from app.database_config.database import database_url
+import app.model.datamodel  # noqa: F401 - register models with Base.metadata
 from alembic import context
 
 # this is the Alembic Config object, which provides

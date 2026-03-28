@@ -2,9 +2,9 @@ from fastapi.routing import APIRouter
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm.session import Session
 from sqlalchemy.orm import joinedload
-from schemas.schemas import ExpenseSchema, ExpenseResponseSchema
-from model.datamodel import Category, Expense
-from database_config.database import Base, engine, get_db
+from app.schemas.schemas import ExpenseSchema, ExpenseResponseSchema
+from app.model.datamodel import Category, Expense
+from app.database_config.database import Base, engine, get_db
 from http import HTTPStatus
 from typing import List
 
