@@ -11,8 +11,8 @@ services:
   api:
     image: backend_finance:latest
     labels:
-      "shipyard.route": "/docs"
-      "shipyard.primary-route": "true"
+      shipyard.route: "/"
+      shipyard.primary-route: "true"
     build: ./
     depends_on:
       - db
