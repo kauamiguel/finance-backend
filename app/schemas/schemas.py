@@ -3,12 +3,17 @@ from typing import List, Optional
 from pydantic import BaseModel, EmailStr
 
 class UserloginScheme(BaseModel):
-    username : str
     email: EmailStr
     password: str
 
 class UserPublicloginScheme(BaseModel):
-    username : str
+    email: EmailStr
+
+class UserRegisterScheme(BaseModel):
+    email: EmailStr
+    password: str
+
+class UserPublicRegisterScheme(BaseModel):
     email: EmailStr
 
 class CategoryBase(BaseModel):
